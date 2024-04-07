@@ -17,17 +17,21 @@ KERNEL_DIR=$2
 BOOT_DIR=$3
 ROOTFS_DIR=$4
 PREBUILT=$5
-TARGET_OS=$6
+TARGET_OS=$(echo ${6,,}|sed 's/\///g')
 
+HOST_ARCH=
+if uname -mpi | grep aarch64 >/dev/null; then
+    HOST_ARCH="aarch64/"
+fi
 
 # kernel bin
 KMODULES_OUTDIR="${OUT}/output_${SOC}_kmodules"
 (cd ${KERNEL_DIR} && {
     # gen kernel.img
-    ${TOP}/tools/mkkrnlimg arch/arm64/boot/Image ${KIMG}
+    ${TOP}/tools/${HOST_ARCH}mkkrnlimg arch/arm64/boot/Image ${KIMG}
 
     # gen resource.img
-    ${TOP}/tools/resource_tool --dtbname arch/arm64/boot/dts/rockchip/rk3328-nanopi*-rev*.dtb \
+    ${TOP}/tools/${HOST_ARCH}resource_tool --dtbname arch/arm64/boot/dts/rockchip/rk3328-nanopi*-rev*.dtb \
             ${TOP}/prebuilt/boot/logo.bmp ${TOP}/prebuilt/boot/logo_kernel.bmp
 
     cp ${KIMG} ${KDTB} ${TOP}/${TARGET_OS}/
