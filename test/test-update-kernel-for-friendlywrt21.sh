@@ -6,12 +6,7 @@ KERNEL_URL=https://github.com/friendlyarm/kernel-rockchip
 KERNEL_BRANCH=nanopi-r2-v6.1.y
 
 # hack for me
-PCNAME=`hostname`
-if [ x"${PCNAME}" = x"tzs-i7pc" ]; then
-	HTTP_SERVER=127.0.0.1
-	KERNEL_URL=git@192.168.1.5:/devel/kernel/linux.git
-	KERNEL_BRANCH=nanopi-r2-v6.1.y
-fi
+[ -f /etc/friendlyarm ] && source /etc/friendlyarm $(basename $(builtin cd ..; pwd))
 
 # clean
 mkdir -p tmp
@@ -33,5 +28,5 @@ else
 	git clone ${KERNEL_URL} --depth 1 -b ${KERNEL_BRANCH} kernel-rk3328
 fi
 
-BUILD_THIRD_PARTY_DRIVER=1 KERNEL_SRC=$PWD/kernel-rk3328 ./build-kernel.sh friendlywrt21
+KERNEL_SRC=$PWD/kernel-rk3328 ./build-kernel.sh friendlywrt21
 sudo ./mk-sd-image.sh friendlywrt21

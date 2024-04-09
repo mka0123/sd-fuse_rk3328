@@ -6,10 +6,7 @@ UBOOT_REPO=https://github.com/friendlyarm/uboot-rockchip
 UBOOT_BRANCH=nanopi4-v2017.09
 
 # hack for me
-PCNAME=`hostname`
-if [ x"${PCNAME}" = x"tzs-i7pc" ]; then
-	HTTP_SERVER=127.0.0.1
-fi
+[ -f /etc/friendlyarm ] && source /etc/friendlyarm $(basename $(builtin cd ..; pwd))
 
 # clean
 mkdir -p tmp
@@ -26,8 +23,5 @@ else
 fi
 
 git clone ${UBOOT_REPO} --depth 1 -b ${UBOOT_BRANCH} uboot-rk3328
-if [ x"${PCNAME}" = x"tzs-i7pc" ]; then
-    [ -d rkbin ] || git clone git@192.168.1.5:/rockchip/rkbin.git
-fi
 UBOOT_SRC=$PWD/uboot-rk3328 ./build-uboot.sh friendlycore-lite-focal-arm64
 sudo ./mk-sd-image.sh friendlycore-lite-focal-arm64
