@@ -56,7 +56,7 @@ declare -a KERNEL_3RD_DRIVER_BRANCHES=()
 declare -a KERNEL_3RD_DRIVER_NAME=()
 
 KERNEL_3RD_DRIVERS+=("https://github.com/mka0123/rtl8821CU")
-KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
+KERNEL_3RD_DRIVER_BRANCHES+=("main")
 KERNEL_3RD_DRIVER_NAME+=("rtl8821CU")
 
 KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822bu")
