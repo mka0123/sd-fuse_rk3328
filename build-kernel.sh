@@ -55,25 +55,25 @@ declare -a KERNEL_3RD_DRIVERS=()
 declare -a KERNEL_3RD_DRIVER_BRANCHES=()
 declare -a KERNEL_3RD_DRIVER_NAME=()
 
-KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8821CU")
+KERNEL_3RD_DRIVERS+=("https://github.com/morrownr/8821cu-20210916")
 KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
 KERNEL_3RD_DRIVER_NAME+=("rtl8821CU")
 
-KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822bu")
-KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
-KERNEL_3RD_DRIVER_NAME+=("rtl8822bu")
+# KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822bu")
+# KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
+# KERNEL_3RD_DRIVER_NAME+=("rtl8822bu")
 
-KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822cs")
-KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
-KERNEL_3RD_DRIVER_NAME+=("rtl8822cs")
+# KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822cs")
+# KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
+# KERNEL_3RD_DRIVER_NAME+=("rtl8822cs")
 
-KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822ce")
-KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
-KERNEL_3RD_DRIVER_NAME+=("rtl8822ce")
+# KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8822ce")
+# KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
+# KERNEL_3RD_DRIVER_NAME+=("rtl8822ce")
 
-KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8812au")
-KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
-KERNEL_3RD_DRIVER_NAME+=("rtl8812au")
+# KERNEL_3RD_DRIVERS+=("https://github.com/friendlyarm/rtl8812au")
+# KERNEL_3RD_DRIVER_BRANCHES+=("nanopi-r2")
+# KERNEL_3RD_DRIVER_NAME+=("rtl8812au")
 
 build_external_module() {
     DRIVER_REPO=$1
